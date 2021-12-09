@@ -35,7 +35,7 @@ export class PokemonListComponent implements OnInit {
       }
 
       generateBackgroundColor(){
-        return this.pokemons.length > 5 ? '#00dd00' : '#882222';
+        return this.pokemons.length > 5 ? '#EDA834' : '#8EC4F0';
       }
 
       removePokemon(index: number){
