@@ -1,16 +1,17 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
     @Component({
       selector: 'app-pokemon-item',
       templateUrl: './pokemon-item.component.html',
       styleUrls: ['./pokemon-item.component.scss']
     })
-    export class PokemonItemComponent implements OnInit {
+    export class PokemonItemComponent {
       @Input() name: string | undefined;
-      constructor() { }
+      @Output() removeClick = new EventEmitter();
 
-      ngOnInit(): void {
 
+    remove(){
+      console.log('remove item');
+      this.removeClick.emit();
     }
-
   }

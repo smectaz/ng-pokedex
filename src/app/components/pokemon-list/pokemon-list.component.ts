@@ -7,12 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokemonListComponent implements OnInit {
 
-    nbCaught = 0;
+
     buttonAddClicked = false;
     buttonRemoveClicked = false;
     pokemonName = '';
 
-    pokemons: string [] = [];
+    pokemons: string[] = [];
 
     constructor() { }
 
@@ -20,39 +20,30 @@ export class PokemonListComponent implements OnInit {
 
       }
 
-      pokemonNameChanged($event: Event){
-        console.log($event);
-        const inputElement = $event.target as HTMLInputElement;
-        this.pokemonName = inputElement.value;
-      }
-
       addPokemonButton($event:Event) {
-      console.log($event);
 
-      this.nbCaught ++;
+        console.log(this.pokemonName);
 
-      this.buttonAddClicked = true;
+        if(this.pokemonName!==''){
 
-      this.pokemons.push(this.pokemonName);
-      console.log(this.pokemons);
-      setTimeout(() => {
-        this.buttonAddClicked = false;
-      }, 1000);
-    }
+          this.buttonAddClicked = true;
+          this.pokemons.push(this.pokemonName);
+          console.log(this.pokemons);
+          this.pokemonName = '';
+        }
 
-    removePokemonButton($event:Event) {
-      console.log($event)
-      this.nbCaught --;
-      this.buttonRemoveClicked = true;
-      this.pokemons.pop();
-      console.log(this.pokemons);
-      setTimeout(() => {
-      this.buttonRemoveClicked = false;
-    }, 1000);
       }
 
       generateBackgroundColor(){
-        return this.nbCaught > 5 ? '#00dd00' : '#882222';
+        return this.pokemons.length > 5 ? '#00dd00' : '#882222';
+      }
+
+      removePokemon(index: number){
+        this.buttonRemoveClicked = true;
+        this.buttonAddClicked = false;
+        this.pokemons.length-=1;
+        console.log('remove list ' + index);
+        this.pokemons.splice(index, 1);
       }
 
 }
