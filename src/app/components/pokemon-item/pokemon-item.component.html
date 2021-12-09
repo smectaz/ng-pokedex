@@ -1,6 +1,7 @@
 pokémon: {{nbCaught}}
 
 
+
 <div>
 <p>le nom du pokemon est {{pokemonName}}</p>
 </div>
@@ -9,7 +10,7 @@ pokémon: {{nbCaught}}
   <input type="text" [(ngModel)]="pokemonName">
 </div>
 
-<div *ngIf="buttonAddClicked">pokémon added !</div>
+
 
 <div>
 <button (click)="addPokemonButton($event)">add pokémon</button>
@@ -17,8 +18,17 @@ pokémon: {{nbCaught}}
 
 <div>
   <button (click)="removePokemonButton($event)">remove pokémon</button>
-  </div>
+</div>
 
-  <div *ngIf="buttonRemoveClicked">pokémon removed !</div>
-  <div>{{zeroPokemon}}</div>
+<div *ngIf="buttonAddClicked">pokémon added !
+
+</div>
+
+<div *ngIf="buttonRemoveClicked">pokémon removed !
+</div>
+
+<div>{{zeroPokemon}}</div>
+
+
+
 
