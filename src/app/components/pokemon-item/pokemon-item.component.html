@@ -1,34 +1,3 @@
-pokémon: {{nbCaught}}
-
-
-
-<div>
-<p>le nom du pokemon est {{pokemonName}}</p>
+<div class="pokemon-item">
+  {{ name }}
 </div>
-
-<div>
-  <input type="text" [(ngModel)]="pokemonName">
-</div>
-
-
-
-<div>
-<button (click)="addPokemonButton($event)">add pokémon</button>
-</div>
-
-<div>
-  <button (click)="removePokemonButton($event)">remove pokémon</button>
-</div>
-
-<div *ngIf="buttonAddClicked">pokémon added !
-
-</div>
-
-<div *ngIf="buttonRemoveClicked">pokémon removed !
-</div>
-
-<div>{{zeroPokemon}}</div>
-
-
-
-

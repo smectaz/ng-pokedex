@@ -1,1 +1,43 @@
-<p>pokemon-list works!</p>
+<div [ngStyle]="{ backgroundColor: generateBackgroundColor()}">
+  <h1 class="display-1" [ngClass]="{'is-white': buttonAddClicked, 'is-red': !buttonAddClicked}">POKEDEX</h1>
+
+  <h2 class ="display-3">My pokémons</h2>
+
+  pokémon: {{nbCaught}}
+
+
+
+  <div>
+  <p>le nom du pokemon est {{pokemonName}}</p>
+  </div>
+
+  <div>
+    <input type="text" [(ngModel)]="pokemonName">
+  </div>
+
+
+
+  <div>
+  <button (click)="addPokemonButton($event)" class="btn btn-primary">add pokémon</button>
+  </div>
+
+  <div>
+    <button [disabled]="nbCaught <=0" (click)="removePokemonButton($event)" class="btn btn-danger">remove</button>
+  </div>
+
+  <div *ngIf="buttonAddClicked">pokémon added !
+
+  </div>
+
+  <div *ngIf="buttonRemoveClicked">pokémon removed !
+  </div>
+
+  <div *ngIf = "nbCaught === 0">TU N'AS PLUS DE POKEMON ! VA EN CAPTURER !</div>
+
+<app-pokemon-item [name]="pokemon" *ngFor="let pokemon of pokemons"></app-pokemon-item>
+
+</div>
+
+
+
+

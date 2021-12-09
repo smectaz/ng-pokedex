@@ -7,9 +7,52 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokemonListComponent implements OnInit {
 
-  constructor() { }
+    nbCaught = 0;
+    buttonAddClicked = false;
+    buttonRemoveClicked = false;
+    pokemonName = '';
 
-  ngOnInit(): void {
-  }
+    pokemons: string [] = [];
+
+    constructor() { }
+
+      ngOnInit(): void {
+
+      }
+
+      pokemonNameChanged($event: Event){
+        console.log($event);
+        const inputElement = $event.target as HTMLInputElement;
+        this.pokemonName = inputElement.value;
+      }
+
+      addPokemonButton($event:Event) {
+      console.log($event);
+
+      this.nbCaught ++;
+
+      this.buttonAddClicked = true;
+
+      this.pokemons.push(this.pokemonName);
+      console.log(this.pokemons);
+      setTimeout(() => {
+        this.buttonAddClicked = false;
+      }, 1000);
+    }
+
+    removePokemonButton($event:Event) {
+      console.log($event)
+      this.nbCaught --;
+      this.buttonRemoveClicked = true;
+      this.pokemons.pop();
+      console.log(this.pokemons);
+      setTimeout(() => {
+      this.buttonRemoveClicked = false;
+    }, 1000);
+      }
+
+      generateBackgroundColor(){
+        return this.nbCaught > 5 ? '#00dd00' : '#882222';
+      }
 
 }
