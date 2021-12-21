@@ -10,7 +10,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
       @Output() removeClick = new EventEmitter();
 
 
-    remove(){
+    remove($event: MouseEvent){
+      $event.stopPropagation;
       console.log('remove item');
       this.removeClick.emit();
     }

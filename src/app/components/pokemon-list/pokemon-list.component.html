@@ -25,7 +25,7 @@
 
   <div *ngIf="pokemons.length === 0">TU N'AS PLUS DE POKEMON ! VA EN CAPTURER !</div>
 
-<app-pokemon-item (removeClick)="removePokemon(i)" [name]="pokemon" *ngFor="let pokemon of pokemons; let i = index"></app-pokemon-item>
+<app-pokemon-item appBasicHighlight="black" defaultColor="red" (removeClick)="removePokemon(i)" [name]="pokemon" *ngFor="let pokemon of pokemons; let i = index"></app-pokemon-item>
 
 </div>
 
