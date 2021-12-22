@@ -10,13 +10,13 @@ const routes: Routes = [
   },
 
   {
-    path:'pokemon',
+    path: 'pokemon/:name',
     component: PokemonComponent,
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

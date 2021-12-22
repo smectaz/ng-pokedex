@@ -1,9 +1,21 @@
 import { Injectable } from '@angular/core';
+import { LoggingService } from './logging.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PokemonService {
+  constructor(private loggingService: LoggingService) {}
 
-  constructor() { }
+  pokemons: string[] = [];
+
+  addPokemon(name: string) {
+    this.loggingService.logItemCreated(name);
+    this.pokemons.push(name);
+  }
+
+  removePokemon(name: string) {
+    this.loggingService.logItemRemoved(name);
+    this.pokemons.splice(this.pokemons.indexOf(name), 1);
+  }
 }
