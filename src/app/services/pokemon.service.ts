@@ -34,6 +34,18 @@ export class PokemonService {
     const pokemonIndex = this.pokemons.indexOf(name);
     this.removePokemon(pokemonIndex);
   }
+
+  getNextPokemonName(currentPokemonName: string | undefined){
+    if (!currentPokemonName) throw new Error("can't find pokémon");
+    const pokemonIndex = this.pokemons.indexOf(currentPokemonName);
+    return this.pokemons[pokemonIndex + 1];
+  }
+
+  getPreviousPokemonName(currentPokemonName: string | undefined){
+    if (!currentPokemonName) throw new Error("can't find pokémon");
+    const pokemonIndex = this.pokemons.indexOf(currentPokemonName);
+    return this.pokemons[pokemonIndex - 1];
+  }
   }
 
 

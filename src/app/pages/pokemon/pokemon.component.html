@@ -1,1 +1,4 @@
 <h1>Pokemon : {{ pokemonName }}</h1>
+
+<button class="btn btn-primary" [disabled]="!previousPokemon" (click)="goToPreviousPokemon">previous pokémon</button>
+<button class="btn btn-primary" [disabled]="!nextPokemon" (click)="goToNextPokemon">next pokémon</button>
