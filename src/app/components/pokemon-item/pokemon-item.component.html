@@ -1,8 +1,7 @@
-<div class="pokemon-item">
+<div class="pokemon-item" (click)="goToPokemon()">
   {{ name }}
   <button
     (click)="remove($event)"
-    (click)="goToPokemon()"
     class="btn btn-danger"
   >
     remove

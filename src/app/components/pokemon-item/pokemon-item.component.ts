@@ -16,7 +16,8 @@ export class PokemonItemComponent implements OnInit {
 
   remove($event: MouseEvent) {
     $event.stopPropagation;
-    this.pokemonService.removePokemon(this.name);
+    console.log("remove " + this.name)
+    this.pokemonService.removePokemonByName(this.name);
   }
 
   goToPokemon() {
